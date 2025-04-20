@@ -8,6 +8,13 @@ from langchain.chains import RetrievalQA
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from dotenv import load_dotenv
+from werkzeug.utils import secure_filename
+from PIL import Image
+import pytesseract
+
+# Ensure pytesseract is installed: pip install pytesseract pillow
+# Ensure Tesseract-OCR is installed on your system.
+
 
 # Initialize environment variables
 load_dotenv()
@@ -89,6 +96,42 @@ def diary():
 def get_diary_entries():
     # Return all saved diary entries
     return jsonify({"diary_entries": diary_entries}), 200
+
+
+UPLOAD_FOLDER = "uploads"
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
+# Create the uploads folder if it doesn't exist
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+@app.route("/screenshot", methods=["POST"])
+def screenshot():
+    if "screenshot" not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
+
+    file = request.files["screenshot"]
+
+    if file.filename == "":
+        return jsonify({"error": "No selected file"}), 400
+
+    try:
+        # Save the uploaded file
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+        file.save(filepath)
+
+        # Perform OCR on the image
+        image = Image.open(filepath)
+        extracted_text = pytesseract.image_to_string(image)
+
+        # Save the extracted text into GPT memory
+        diary_entries.append(extracted_text)
+        print(f"Extracted text saved: {extracted_text}")
+
+        return jsonify({"message": "Text extracted and saved successfully."}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # Run the Flask app
 if __name__ == "__main__":

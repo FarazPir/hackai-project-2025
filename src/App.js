@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage";
 import ChatUI from "./ChatUI";
 import HelpPage from "./HelpPage"; // Import the new HelpPage component
 import DiaryPage from "./DiaryPage";
+import ScreenshotPage from "./ScreenshotPage";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Route path="/chat" element={<ChatUI />} />
             <Route path="/help" element={<HelpPage />} /> 
             <Route path="/diary" element={<DiaryPage />} /> 
+            <Route path="/screenshot" element={<ScreenshotPage />} />
         </Routes>
     );
 }
