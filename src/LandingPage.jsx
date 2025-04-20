@@ -39,7 +39,9 @@ const LandingPage = () => {
                             </div>
 
                             <div className="col d-flex justify-content-center">
-                                <button className="circle text-white d-flex flex-column align-items-center justify-content-center modern-button">
+                                <button className="circle text-white d-flex flex-column align-items-center justify-content-center modern-button"
+                                onClick={() => navigate("/help")}
+                                >
                                     <i className="bi bi-telephone fs-3"></i>
                                     <p className="mb-0 mt-2">I need help</p>
                                 </button>

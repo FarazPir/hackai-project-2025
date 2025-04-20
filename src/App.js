@@ -1,17 +1,17 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./LandingPage"; // Import your LandingPage component
-import ChatUI from "./ChatUI"; // Import your ChatUI component
+import LandingPage from "./LandingPage";
+import ChatUI from "./ChatUI";
+import HelpPage from "./HelpPage"; // Import the new HelpPage component
 
 function App() {
-  return (
-    <Routes>
-      {/* Set LandingPage as the home page */}
-      <Route path="/" element={<LandingPage />} />
-      {/* Route for ChatUI */}
-      <Route path="/chat" element={<ChatUI />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/chat" element={<ChatUI />} />
+            <Route path="/help" element={<HelpPage />} /> {/* Add the HelpPage route */}
+        </Routes>
+    );
 }
 
 export default App;
