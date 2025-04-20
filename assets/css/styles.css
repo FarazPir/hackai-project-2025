@@ -1,0 +1,82 @@
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Heading style */
+.modern-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    /* Deep, modern slate blue */
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    /* Improves readability */
+}
+
+/* Button text style */
+.modern-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #FFFFFF;
+    /* Clean white text */
+    background-color: #3498DB;
+    /* Calming modern blue */
+    border: none;
+    padding: 0.6rem 1.3rem;
+    border-radius: 6px;
+    /* Softer modern edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle depth */
+}
+
+/* Button hover effect */
+.modern-button:hover {
+    background: linear-gradient(135deg, #43CBFF, #9708CC);
+    /* Slightly darker blue for hover */
+    transform: scale(1.03);
+    /* Slight zoom effect */
+}
+
+/* Page background gradient */
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #6A11CB, #2575FC, #FF7EB3, #FFC3A0);
+    /* Complementary gradient */
+    background-size: 400% 400%;
+    /* Allows for smooth gradient animation if needed */
+    animation: gradientAnimation 15s ease infinite;
+    /* Optional animation for a dynamic effect */
+}
+
+/* Optional: Gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
