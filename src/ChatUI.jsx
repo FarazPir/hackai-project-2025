@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import "./assets/css/bootstrap.min.css";
+import "./assets/css/styles.css"; //
 
 function ChatUI() {
   const [messages, setMessages] = useState([]);
@@ -64,6 +65,10 @@ function ChatUI() {
         />
         <button onClick={sendMessage} style={styles.iconButton}>➤</button>
       </div>
+    
+      <button class="modern-button" onClick={() => window.history.back()} style={{ marginTop: '10px' }}>
+        Back to Home
+      </button>
     </div>
   );
 }
