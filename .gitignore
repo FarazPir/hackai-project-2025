@@ -1,0 +1,5 @@
+# Ignore everything in node_modules/.cache/
+node_modules/.cache/**
+
+# Ensure the directory itself is ignored
+node_modules/.cache/
